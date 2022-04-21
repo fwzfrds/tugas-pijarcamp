@@ -15,22 +15,22 @@ const getAlbums = (method, url) => {
     })
 };
 
-getAlbums('GET', 'https://jsonplaceholder.typicode.com/albums')
-    .then(
-        (data) => {
-            const show = data.filter((item) => item.userId === 3)
-            console.log(show);
-        }
-    )
-    .catch(
-        (error) => {
-            console.log(error);
-        }
-    )
+// getAlbums('GET', 'https://jsonplaceholder.typicode.com/albums')
+//     .then(
+//         (data) => {
+//             const show = data.filter((item) => item.userId === 3)
+//             console.log(show);
+//         }
+//     )
+//     .catch(
+//         (error) => {
+//             console.log(error);
+//         }
+//     )
 
 const handleGetAlbums = async (id) => {
     try {
-        const result = await getAlbums('GET', 'https://jsonplaceholder.typicode.com/albums')
+        const result = await getAlbums('GET', 'https://jsonplaceholder.typicode.com/albumsaaa')
         const show = result.filter((item) => item.userId === id)
         console.log(show);
     } catch (error) {

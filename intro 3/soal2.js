@@ -7,15 +7,15 @@ const getMonth = (callback) => {
         } else {
             callback(new Error('Sorry data not found'), [])
         }
-    }, 2000)
+    }, 4000)
 }
 
-getMonth((data1, data2) => {
-    if (data1 == null) {
-        data2.map(item => {
+getMonth((error, data) => {
+    if (!error) {
+        data.map(item => {
             console.log(item);
         })
     } else {
-        console.log(data1);
+        console.log(error);
     }
 })

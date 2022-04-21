@@ -3,7 +3,7 @@ const filterAges = () => {
         setTimeout(() => {
             const ages = [3, 10, 18, 20, 17, 16, 31, 29, 23]
             let filtered = ages.filter((age) => age > 18).sort((a, b) => a - b)
-            if (filtered) {
+            if (filtered.length !== 0) {
                 resolve(filtered)
             } else {
                 reject(new Error('Data tidak ditemukan'))
@@ -12,17 +12,17 @@ const filterAges = () => {
     })
 }
 
-filterAges()
-    .then(
-        (filtered) => {
-            console.log(filtered);
-        }
-    )
-    .catch(
-        (error) => {
-            console.log(error);
-        }
-    )
+// filterAges()
+//     .then(
+//         (filtered) => {
+//             console.log(filtered);
+//         }
+//     )
+//     .catch(
+//         (error) => {
+//             console.log(error);
+//         }
+//     )
 
 const handleFilterAges = async () => {
     try {
