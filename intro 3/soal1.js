@@ -2,7 +2,7 @@ const workindDayCheck = (day) => {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             const dayData = ['senin', 'selasa', 'rabu', 'kamis', 'jumat']
-            let check = dayData.find((item) => { return item === day })
+            let check = dayData.find((item) => item.match(new RegExp(day, 'i')))
             if (check) {
                 resolve(check)
             } else {
@@ -12,7 +12,7 @@ const workindDayCheck = (day) => {
     })
 }
 
-workindDayCheck('senin')
+workindDayCheck('senIn')
     .then(
         (check) => {
             console.log(`Hari ini adalah hari ${check} dan hari ini adalah hari kerja`);
