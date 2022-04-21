@@ -12,7 +12,7 @@ const getMonth = (callback) => {
 
 getMonth((error, data) => {
     if (!error) {
-        data.map(item => {
+        data.forEach(item => {
             console.log(item);
         })
     } else {
