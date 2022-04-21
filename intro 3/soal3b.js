@@ -1,4 +1,4 @@
-const getAlbums = (method, url) => {
+const getAlbums = (method, url, id) => {
     return new Promise((resolve, reject) => {
         const ajax = new XMLHttpRequest();
         ajax.open(method, url);
@@ -6,7 +6,7 @@ const getAlbums = (method, url) => {
         ajax.onload = function () {
             if (ajax.status === 200) {
                 const result = JSON.parse(ajax.responseText);
-                resolve(result)
+                resolve([result, id])
             } else {
                 reject(new Error('There is an error'))
             }
@@ -15,29 +15,29 @@ const getAlbums = (method, url) => {
     })
 };
 
-// getAlbums('GET', 'https://jsonplaceholder.typicode.com/albums')
-//     .then(
-//         (data) => {
-//             const show = data.filter((item) => item.userId === 3)
-//             console.log(show);
-//         }
-//     )
-//     .catch(
-//         (error) => {
-//             console.log(error);
-//         }
-//     )
+getAlbums('GET', 'https://jsonplaceholder.typicode.com/albums', 3)
+    .then(
+        (data) => {
+            const show = data[0].filter((item) => item.userId === data[1])
+            console.log(show);
+        }
+    )
+    .catch(
+        (error) => {
+            console.log(error);
+        }
+    )
 
-const handleGetAlbums = async (id) => {
-    try {
-        const result = await getAlbums('GET', 'https://jsonplaceholder.typicode.com/albumsaaa')
-        const show = result.filter((item) => item.userId === id)
-        console.log(show);
-    } catch (error) {
-        console.error(error);
-    }
+// const handleGetAlbums = async (id) => {
+//     try {
+//         const result = await getAlbums('GET', 'https://jsonplaceholder.typicode.com/albums', id)
+//         const show = result[0].filter((item) => item.userId === result[1])
+//         console.log(show);
+//     } catch (error) {
+//         console.error(error);
+//     }
 
-}
-handleGetAlbums(10)
+// }
+// handleGetAlbums(10)
 
 

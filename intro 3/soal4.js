@@ -16,4 +16,4 @@ const getName = async (url) => {
     }
 };
 
-getName('https://jsonplaceholder.typicode.com/usersaa');
+getName('https://jsonplaceholder.typicode.com/users');

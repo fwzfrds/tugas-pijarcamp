@@ -3,7 +3,7 @@ const filterAges = () => {
         setTimeout(() => {
             const ages = [3, 10, 18, 20, 17, 16, 31, 29, 23]
             let filtered = ages.filter((age) => age > 18).sort((a, b) => a - b)
-            if (filtered.length !== 0) {
+            if (filtered.length) {
                 resolve(filtered)
             } else {
                 reject(new Error('Data tidak ditemukan'))
